@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Halaman dengan Logo dan Tombol</title> 
+  <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080');
+            background-size: 100vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+     /* Menghilangkan highlight teks saat diseleksi */
+*::selection {
+    background: none;
+    color: inherit;
+    -WebKit-tap-highlight: none;
+}
+
+/* Menghilangkan outline pada elemen saat di-fokuskan */
+/* Menghilangkan efek highlight saat tap di WebKit */
+* {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* atau gunakan 'none' */
+}
+input:focus, button:focus, textarea:focus {
+    outline: none;
+}
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .logo {
+           /* margin: 30px;*/
+            animation-delay: 0.5s;
+        }
+        .logo img {
+            margin-left: 10px;
+            width: 125px;
+            border-radius: 50%;
+        }
+        .text {
+            margin-bottom: 10px;
+            text-align: center;
+            animation-delay: 1s;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation-delay: 1.5s;
+            text-align: center;
+        }
+        .button-container button {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 15px 32px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .text2 {
+            margin-top: 50px;
+            text-align: center;
+            width: 80%;
+            animation-delay: 2s;
+        }
+   button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    -WebKit-tap-highlight: none;
+    transition: transform 0.2s ease; /* Mengatur kehalusan efek perpindahan */
+}
+
+button:hover {
+    transform: scale(0.96); /* Memperbesar tombol sedikit saat di-hover */
+}
+    </style> 
+ </head> 
+ <body oncontextmenu="return false">
+
+  <div class="logo fade-in"> 
+   <img src="https://lysander-frost.github.io/file/profile1.webp" alt="Logo"> 
+  </div> 
+  <div class="text fade-in"> 
+   <h2>PORTAL NAVIGASI WEBSITE</h2> 
+  </div> 
+  <div class="button-container fade-in"> 
+   <button onclick="location.href='https://pf30.vercel.app';">KUNJUNGI PORTFOLIO SAYA</button>
+   <button onclick="location.href='https://kuis';">QUIZ RANDOM & TES IQ</button>
+   <button onclick="location.href='https://arletter.vercel.app';">CONTOH WEBSITE RESPONSIF</button>
+   <button onclick="location.href='https://drive.google.com/drive/folders/1c-Ue1WKXhyLz0A-_J-hBdl14bdoXPVCU';">PENYIMPANAN TUGAS SEKOLAH</button>
+   <button onclick="location.href='https://forms.gle/KTUqu1hDa9ZjyxUa7';">KIRIM PESAN SECARA ANONIM</button>
+   <button onclick="location.href='mailto:twilightchiper@gmail.com';">HUBUNGI DEVELOPER WEBSITE</button> 
+  </div> 
+  <div class="text2 fade-in"> 
+   <p><!--© 2024 Web Entrance. Designed for you, protected by us.--></p> 
+  </div> 
+ </body>
+</html>
