@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>verifikasi</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <style>
+    /* Gaya untuk membuat video dan kanvas memenuhi layar */
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+    #webcam, #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .counter {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <video id="webcam" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+  <p class="counter">wajah yang terdeteksi: <span id="count">0</span></p>
+
+  <script>
+    async function startCamera() {
+      const video = document.getElementById('webcam');
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (error) {
+        console.error('Error accessing the webcam:', error);
+      }
+    }
+
+    async function runDetection() {
+      const video = document.getElementById('webcam');
+      const canvas = document.getElementById('canvas');
+      const countDisplay = document.getElementById('count');
+      const context = canvas.getContext('2d');
+      const model = await cocoSsd.load();
+      let redirected = false;
+
+      async function detectFrame() {
+        if (redirected) return;
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        const predictions = await model.detect(video);
+        let humanCount = 0;
+
+        predictions.forEach(prediction => {
+          if (prediction.class === 'person') {
+            const [x, y, width, height] = prediction.bbox;
+            const centerX = x + width / 2 - width * 0.1;
+            const centerY = y + height / 2 - height * 0.3;
+            const radius = Math.min(width, height) * 0.2;
+
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            context.fillStyle = 'rgba(0, 0, 255, 0.3)';
+            context.fill();
+            context.fillStyle = 'white';
+            context.fillText('Orang', centerX - radius, centerY - radius - 5);
+            humanCount++;
+
+            if (!redirected) {
+              window.location.href = 'login.html';
+              redirected = true;
+            }
+          }
+        });
+
+        countDisplay.textContent = humanCount;
+        requestAnimationFrame(detectFrame);
+      }
+
+      detectFrame();
+    }
+
+    startCamera().then(runDetection);
+  </script>
+</body>
+</html>
