@@ -68,6 +68,48 @@
       background-color: #357ab8;
     }
   </style>
+    document.addEventListener("keydown", function(e) {
+    // Mencegah F12 (Developer Tools)
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+Shift+I (Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {  // 73 adalah kode untuk 'I'
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+Shift+J (Console Developer Tools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {  // 74 adalah kode untuk 'J'
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+U (Lihat sumber halaman)
+    if (e.ctrlKey && e.keyCode === 85) {  // 85 adalah kode untuk 'U'
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+Shift+U (Lihat sumber halaman di beberapa browser)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 85) {
+        e.preventDefault();
+    }
+
+    // Mencegah F11 (Masuk atau keluar dari mode layar penuh)
+    if (e.key === "F11") {
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+Shift+C (Untuk membuka Inspect Element)
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {  // 67 adalah kode untuk 'C'
+        e.preventDefault();
+    }
+
+    // Mencegah Ctrl+P (Buka menu cetak)
+    if (e.ctrlKey && e.keyCode === 80) {  // 80 adalah kode untuk 'P'
+        e.preventDefault();
+    }
+});
+    </script>
 </head>
 <body>
   <div class="container">
