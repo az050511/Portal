@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waktu Digital Menarik</title>
+    <style>
+        /* Gaya umum halaman */
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #3b82f6, #9333ea);
+            color: #ffffff;
+            overflow: hidden;
+        }
+        
+        /* Gaya animasi latar belakang */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+        }
+
+        /* Efek berdenyut */
+        @keyframes pulse {
+            0% { opacity: 5; transform: scale(1); }
+            100% { opacity: 0.4; transform: scale(1.05); }
+        }
+
+        /* Gaya umum untuk kotak waktu */
+        .time-box {
+            margin: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            border-radius: 15px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            transition: transform 1s;
+        }
+
+        /* Animasi hover */
+        .time-box:hover {
+           transition: transform 1s;
+            animation: pulse 0.5s;
+        }
+
+        /* Gaya untuk judul waktu */
+        h1 {
+            margin: 15px;
+            font-size: 35px;
+            color: #ffeb3b;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Gaya waktu yang ditampilkan */
+        .time {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    
+    <h1>Zona Waktu Digital</h1>
+    
+    <div class="time-box" id="utcTime">UTC Time: <span class="time">Loading...</span></div>
+    <div class="time-box" id="gmtTime">GMT Time: <span class="time">Loading...</span></div>
+    <div class="time-box" id="wibTime">WIB (Waktu Indonesia Barat): <span class="time">Loading...</span></div>
+    <div class="time-box" id="witaTime">WITA (Waktu Indonesia Tengah): <span class="time">Loading...</span></div>
+    <div class="time-box" id="witTime">WIT (Waktu Indonesia Timur): <span class="time">Loading...</span></div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+
+            // Mendapatkan waktu dalam UTC
+            const utcTime = now.toISOString().replace('T', ' ').slice(0, 19);
+            document.getElementById('utcTime').innerHTML = `UTC Time: <span class="time">${utcTime}</span>`;
+
+            // Mendapatkan waktu dalam GMT
+            const gmtTime = now.toLocaleString("en-GB", { timeZone: "GMT", hour12: false });
+            document.getElementById('gmtTime').innerHTML = `GMT Time: <span class="time">${gmtTime}</span>`;
+
+            // Mendapatkan waktu dalam WIB (UTC+7)
+            const wibTime = now.toLocaleString("en-GB", { timeZone: "Asia/Jakarta", hour12: false });
+            document.getElementById('wibTime').innerHTML = `WIB (Waktu Indonesia Barat): <span class="time">${wibTime}</span>`;
+
+            // Mendapatkan waktu dalam WITA (UTC+8)
+            const witaTime = now.toLocaleString("en-GB", { timeZone: "Asia/Makassar", hour12: false });
+            document.getElementById('witaTime').innerHTML = `WITA (Waktu Indonesia Tengah): <span class="time">${witaTime}</span>`;
+
+            // Mendapatkan waktu dalam WIT (UTC+9)
+            const witTime = now.toLocaleString("en-GB", { timeZone: "Asia/Jayapura", hour12: false });
+            document.getElementById('witTime').innerHTML = `WIT (Waktu Indonesia Timur): <span class="time">${witTime}</span>`;
+        }
+
+        // Memperbarui setiap detik
+        setInterval(updateTime, 0.00000000000000001);
+    </script>
+</body>
+</html>
