@@ -60,7 +60,7 @@ width: 100%;
       border-radius: 8px;
       font-size: 1rem;
 }
-    .login-container input[type="password"] {
+    .login-container input[type="password"], .login-container input[type="message"] {
       width: 100%;
       padding: 0.8rem;
       margin-top: 0.5rem;
@@ -113,7 +113,7 @@ width: 100%;
     }
   </style>
 </head>
-<body translate="no" oncontexmenu="return-false">
+<body translate="no" oncontextmenu="return false;">
   <div class="login-container">
      <img src="https://www.gstatic.com/policies/privacy/0d6da8d8c44e7e3ee95c4d56c19f04e1.svg" alt="Logo" class="logo" top="-15px" width="90">
     <h2>Login with Identity</h2>
@@ -138,7 +138,7 @@ width: 100%;
 
       // Toggle antara text dan password
       if (passwordField.type === "password") {
-        passwordField.type = "text";
+        passwordField.type = "message";
         toggleIcon.innerHTML = "🔓"; // Icon mata terbuka
       } else {
         passwordField.type = "password";
