@@ -98,6 +98,15 @@ button:hover {
     background-color:#ffff; /* Memperbesar tombol sedikit saat di-hover */
 }
     </style> 
+
+    <script>
+   document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // 73 adalah kode untuk 'I'
+        e.preventDefault();
+    }
+});
+  </script>
+  
  </head> 
  <body oncontextmenu="return false" translate="no">
 
@@ -118,12 +127,6 @@ button:hover {
   <div class="text2 fade-in"> 
    <p><!--© 2024 Web Entrance. Designed for you, protected by us.--></p> 
   </div> 
-  <script>
-   document.addEventListener("keydown", function(e) {
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // 73 adalah kode untuk 'I'
-        e.preventDefault();
-    }
-});
-  </script>
+
  </body>
 </html>
