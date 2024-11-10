@@ -112,6 +112,13 @@
         }
     </style>
     <script>
+   document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // 73 adalah kode untuk 'I'
+        e.preventDefault();
+    }
+});
+  </script>
+    <script>
         let quizStarted = false;
 
         function enterFullscreen(element) {
