@@ -130,7 +130,13 @@ width: 100%;
       <button type="submit">Submit</button>
     </form>
   </div>
-
+<script>
+   document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // 73 adalah kode untuk 'I'
+        e.preventDefault();
+    }
+});
+</script>
   <script>
     function togglePassword() {
       const passwordField = document.getElementById("password");
