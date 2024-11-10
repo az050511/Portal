@@ -14,7 +14,11 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
-
+  span {
+    font-size: 13px;
+    color: #333
+    text-align: center;
+  }
     /* Membuat latar belakang gradasi yang aesthetic */
     body {
       background: linear-gradient(135deg, #a8edea, #fed6e3);
@@ -100,6 +104,7 @@
   <div class="login-container">
     <h2>Login with Identity</h2>
     <form onsubmit="redirectUser(event)">
+      <span>Masukkan nama lengkap dan password yang Anda ingat untuk mengakses situs ini. </span>
       <input type="text" id="username" placeholder="Masukkan nama lengkap anda..." required>
       
       <!-- Password container with icon -->
