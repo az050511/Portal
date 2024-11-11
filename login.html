@@ -80,7 +80,7 @@ width: 100%;
       padding-right: 2.5rem; /* Tambahkan ruang untuk ikon */
     }
 
-    .toggle-password {
+    .msjndhbwh {
       position: absolute;
       right: 10px;
       top: 50%;
@@ -119,12 +119,12 @@ width: 100%;
     <h2>Login with Identity</h2>
 <span class="spn1">Enter account credentials to continue</span>
     <form onsubmit="redirectUser(event)">
-      <input type="text" id="username" placeholder="Masukkan nama lengkap anda..." required>
+      <input type="text" id="hhydft" placeholder="Masukkan nama lengkap anda..." required>
       
       <!-- Password container with icon -->
       <div class="password-container">
-        <input type="password" id="password" placeholder="Masukkan Password..." required>
-        <span class="toggle-password" onclick="togglePassword()">🔒</span> <!-- Icon mata -->
+        <input type="password" id="trxgvsg" placeholder="Masukkan Password..." required>
+        <span class="msjndhbwh" onclick="xcgatuPbjgge()">🔒</span> <!-- Icon mata -->
       </div>
 
       <button type="submit">Submit</button>
@@ -174,59 +174,36 @@ width: 100%;
 });
 </script>
   <script>
-    function togglePassword() {
-      const passwordField = document.getElementById("password");
-      const toggleIcon = document.querySelector(".toggle-password");
+    function xcgatuPbjgge() {
+      const tgubbBywj = document.getElementById("trxgvsg");
+      const xcrthFygxc = document.querySelector(".msjndhbwh");
 
       // Toggle antara text dan password
-      if (passwordField.type === "password") {
-        passwordField.type = "message";
-        toggleIcon.innerHTML = "🔓"; // Icon mata terbuka
+      if (tgubbBywj.type === "password") {
+        tgubbBywj.type = "message";
+        xcrthFygxc.innerHTML = "🔓"; // Icon mata terbuka
       } else {
-        passwordField.type = "password";
-        toggleIcon.innerHTML = "🔒"; // Icon mata tertutup
+        tgubbBywj.type = "password";
+        xcrthFygxc.innerHTML = "🔒"; // Icon mata tertutup
       }
     }
 
 function redirectUser(event) {
       event.preventDefault(); // Mencegah form melakukan submit standar
-      const username = document.getElementById("username").value.trim().toLowerCase();
-      const password = document.getElementById("password").value;
+      const username = document.getElementById("hhydft").value.trim().toLowerCase();
+      const password = document.getElementById("trxgvsg").value;
 
       // Daftar username yang valid dan password tunggal
       const validUsernames = [
-        "ahmad illiyansa fachrial al-isan",
-        "aufa wahyu rozaana",
-        "aurora aizza tul afriliana",
-        "daffa reyno pratama",
-        "dakwan rizqi praditama",
-        "denmas hafiz za'imullatief",
-        "dewa avridian firmansyah",
-        "erwin pramana putra",
-        "ibrahim firdaus el faqihy",
-        "ihsan habibi",
-        "kharissa nur rahma",
-        "maya dwi irawan",
-        "minhatul maula asy syarif",
-        "muhammad azka arrodhi",
-        "muhammad rohim",
-        "nazila irsya khalid",
-        "ragil martiano",
-        "raissya shilvia nada rhistiyono",
-        "reina deviar muyasari",
-        "shaqila aura asfali",
-        "talitha putri naifah",
-        "teti jahidah dinillah",
-        "vallent darielle yeristio",
-        "yulinda rahma wijayanti"
+        "muhammad azka arrodhi"
       ];
-      const validPassword = "password123"; // Password yang sama untuk semua username
+      const validPassword = "jjh66#$"; // Password yang sama untuk semua username
 
       // Cek apakah username dan password benar
       if (validUsernames.includes(username) && password === validPassword) {
         window.location.href = "https://drive.google.com/drive/folders/1c-Ue1WKXhyLz0A-_J-hBdl14bdoXPVCU"; // Ganti dengan URL tujuan
       } else {
-        alert("Username atau password salah!");
+        alert("Identitas Anda tidak dikenal!");
       }
     }
   </script>
